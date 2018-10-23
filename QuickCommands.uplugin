@@ -1,0 +1,23 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.1",
+	"FriendlyName": "QuickCommands",
+	"Description": "Clickable commands",
+	"Category": "Other",
+	"CreatedBy": "Rens/Epic_Boi",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "QuickCommands",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	]
+}
