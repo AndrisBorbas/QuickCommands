@@ -27,3 +27,4 @@ ProjectName
   
 4. Open the .uproject and it should prompt you to rebuild the plugin
 5. Hopefully the build succeeds!
+6. Configure the location of the file you want to use in editor preferences.
