@@ -5,6 +5,8 @@ Plugin for Unreal Engine 4 that adds a window what you can fill with console com
 
 The window is resizable and dockable, the height of the cells is fixed, but you can scroll in the window if the cells don't fit.
 
+### Special thanks to Rens for the original code. https://twitter.com/artbyrens
+
 ## Building for your version of UE4 (tested with >4.19)
 
 Prerequisites: Setup your environment so that you can build a C++ UE4 project
