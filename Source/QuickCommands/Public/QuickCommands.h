@@ -20,8 +20,8 @@ public:
 	void PluginButtonClicked();
 
 	FString ButtonName;
-	FString SaveDirectory;
-	FString FileName;
+	/*FString SaveDirectory;
+	FString FileName;*/
 	FString TextToSave;
 	FString Commands;
 	TCHAR Command;

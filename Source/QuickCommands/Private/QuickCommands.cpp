@@ -3,6 +3,7 @@
 #include "QuickCommands.h"
 #include "QuickCommandsStyle.h"
 #include "QuickCommandsCommands.h"
+#include "QuickCommandsSettings.h"
 #include "LevelEditor.h"
 #include "Widgets/Docking/SDockTab.h"
 #include "Widgets/Layout/SBox.h"
@@ -14,6 +15,7 @@
 
 #include "LevelEditor.h"
 #include "Engine.h"
+#include "ISettingsModule.h"
 
 static const FName QuickCommandsTabName("QuickCommands");
 
@@ -27,6 +29,15 @@ void FQuickCommandsModule::StartupModule()
 	FQuickCommandsStyle::ReloadTextures();
 
 	FQuickCommandsCommands::Register();
+
+	if (ISettingsModule* SettingsModule = FModuleManager::GetModulePtr<ISettingsModule>("Settings"))
+	{
+		SettingsModule->RegisterSettings("Editor", "Plugins", "Quick Commands",
+			LOCTEXT("QuickCommandsName", "Quick Commands Comments"),
+			LOCTEXT("QuickCommandsNameDesc", "Configure options for the location of the commands file"),
+			GetMutableDefault<UQuickCommandsSettings>()
+		);
+	}
 	
 	PluginCommands = MakeShareable(new FUICommandList);
 
@@ -60,6 +71,9 @@ void FQuickCommandsModule::ShutdownModule()
 {
 	// This function may be called during shutdown to clean up your module.  For modules that support dynamic reloading,
 	// we call this function before unloading the module.
+	if (ISettingsModule* SettingsModule = FModuleManager::GetModulePtr<ISettingsModule>("Settings"))
+		SettingsModule->UnregisterSettings("Editor", "Plugins", "QuickCommands");
+
 	FQuickCommandsStyle::Shutdown();
 
 	FQuickCommandsCommands::Unregister();
@@ -69,6 +83,8 @@ void FQuickCommandsModule::ShutdownModule()
 
 TSharedRef<SDockTab> FQuickCommandsModule::OnSpawnPluginTab(const FSpawnTabArgs& SpawnTabArgs)
 {
+	FString SaveDirectory = GetMutableDefault<UQuickCommandsSettings>()->SaveDirectoryS;
+	FString FileName = GetMutableDefault<UQuickCommandsSettings>()->FileNameS;
 	FText WidgetText = FText::Format(
 		LOCTEXT("WindowWidgetText", "Add code to {0} in {1} to override this window's contents"),
 		FText::FromString(TEXT("FQuickCommandsModule::OnSpawnPluginTab")),
@@ -78,8 +94,8 @@ TSharedRef<SDockTab> FQuickCommandsModule::OnSpawnPluginTab(const FSpawnTabArgs&
 	TSharedRef< SScrollBox > ButtonList = SNew(SScrollBox);
 
 
-	FString SaveDirectory = FString("D:/Projects/Uprojects");
-	FString FileName = FString("commands.txt");
+	/*FString SaveDirectory = FString("D:/Projects/Uprojects");
+	FString FileName = FString("commands.txt");*/
 	FString TextToSave = Commands;
 	FString AbsoluteFilePath = SaveDirectory + "/" + FileName;
 
