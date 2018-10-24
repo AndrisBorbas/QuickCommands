@@ -35,3 +35,22 @@ ProjectName
 4. Open the .uproject and it should prompt you to rebuild the plugin
 5. Hopefully the build succeeds!
 6. Configure the location of the file you want to use in editor preferences.
+
+#### Example commands.txt:
+
+```
+stat fps
+
+stat unit
+stat Engine
+stat Game
+stat Memory
+
+r.shadow.maxresolution 4096
+r.shadow.maxresolution 1024
+r.DepthOfFieldQuality 4
+r.Streaming.PoolSize 8000
+r.Streaming.Poolsize 6000
+r.Streaming.Poolsize 4000
+r.Streaming.Poolsize 2000
+```
