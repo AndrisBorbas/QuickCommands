@@ -7,6 +7,6 @@
 
 UQuickCommandsSettings::UQuickCommandsSettings(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-	SaveDirectoryS = FString("C:/Users/cxl20/Documents/Unreal Projects");
+	SaveDirectoryS = FString("C:/Users/YOUR_USERNAME/Documents/Unreal Projects");
 	FileNameS = FString("commands.txt");
 }
