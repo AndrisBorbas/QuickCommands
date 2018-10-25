@@ -12,4 +12,4 @@ The empty button is just an empty line in the file.
 
 ## Building for your version of UE4 (tested with >4.19)
 
-https://github.com/AndrisBorbas/QuickCommands/wiki
+https://github.com/AndrisBorbas/QuickCommands/wiki/Setup
