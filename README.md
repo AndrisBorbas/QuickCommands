@@ -8,6 +8,8 @@ The empty button is just an empty line in the file.
 
 ### Special thanks to Rens for the original code. https://twitter.com/artbyrens
 
+#### Unreal forum post: https://forums.unrealengine.com/community/released-projects/1543348-free-quickcomands
+
 ## Building for your version of UE4 (tested with >4.19)
 
 https://github.com/AndrisBorbas/QuickCommands/wiki
