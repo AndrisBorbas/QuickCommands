@@ -1,9 +1,6 @@
-// Copyright 2018 fpwong, Inc. All Rights Reserved.
+// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
 
 #include "QuickCommandsSettings.h"
-
-
-
 
 UQuickCommandsSettings::UQuickCommandsSettings(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
