@@ -34,7 +34,7 @@ void FQuickCommandsModule::StartupModule()
 	if (ISettingsModule* SettingsModule = FModuleManager::GetModulePtr<ISettingsModule>("Settings"))
 	{
 		SettingsModule->RegisterSettings("Editor", "Plugins", "Quick Commands",
-			LOCTEXT("QuickCommandsName", "Quick Commands Comments"),
+			LOCTEXT("QuickCommandsName", "Quick Commands"),
 			LOCTEXT("QuickCommandsNameDesc", "Configure options for the location of the commands file"),
 			GetMutableDefault<UQuickCommandsSettings>()
 		);

@@ -1,11 +1,11 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "1.1",
+	"VersionName": "1.1.1",
 	"FriendlyName": "QuickCommands",
 	"Description": "Clickable commands",
 	"Category": "Editor",
-	"CreatedBy": "Rens/Epic_Boi",
+	"CreatedBy": "Rens / AndrisBorbas",
 	"CreatedByURL": "",
 	"DocsURL": "",
 	"MarketplaceURL": "",
