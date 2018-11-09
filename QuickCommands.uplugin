@@ -12,7 +12,7 @@
 	"SupportURL": "https://github.com/AndrisBorbas/QuickCommands/issues",
 	"EngineVersion": "4.20.0",
 	"CanContainContent": false,
-	"WhitelistPlatforms": [ "Win64", "Win32", "Mac", "IOS", "Android"
+	"WhitelistPlatforms": [ "Win64", "Win32", "Mac", "IOS", "Android", ]
 	"Installed": true,
 	"Modules": [
 		{
