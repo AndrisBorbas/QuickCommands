@@ -7,11 +7,12 @@
 	"Category": "Editor",
 	"CreatedBy": "Rens / AndrisBorbas",
 	"CreatedByURL": "",
-	"DocsURL": "",
-	"MarketplaceURL": "",
-	"SupportURL": "",
+	"DocsURL": "https://github.com/AndrisBorbas/QuickCommands/wiki",
+	"MarketplaceURL" : "com.epicgames.launcher://ue/marketplace/content/d99b947e097b499985694cec86592660",
+	"SupportURL": "https://github.com/AndrisBorbas/QuickCommands/issues",
 	"EngineVersion": "4.20.0",
 	"CanContainContent": false,
+	"WhitelistPlatforms": [ "Win64", "Win32", "Mac", "IOS", "Android"
 	"Installed": true,
 	"Modules": [
 		{
