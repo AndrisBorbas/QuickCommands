@@ -1,7 +1,7 @@
 {
   "FileVersion": 3,
   "Version": 1,
-  "VersionName": "1.1.4",
+  "VersionName": "1.1.5",
   "FriendlyName": "QuickCommands",
   "Description": "Clickable commands",
   "Category": "Editor",
@@ -10,9 +10,11 @@
   "DocsURL": "https://github.com/AndrisBorbas/QuickCommands/wiki",
   "MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/d99b947e097b499985694cec86592660",
   "SupportURL": "https://github.com/AndrisBorbas/QuickCommands/issues",
-  "EngineVersion": "4.22.0",
+  "EngineVersion": "4.23.0",
   "CanContainContent": false,
-  "WhitelistPlatforms": [ "Win64", "Win32", "Mac", "Linux", "IOS", "Android", "PS4", "XboxOne", ]
+  "WhitelistPlatforms": [ "Win64", "Win32", "Mac", "Linux", "IOS", "Android", "PS4", "XboxOne" ],
+  "CanContainContent" : false,
+  "IsBetaVersion": false,
   "Installed": true,
   "Modules": [
     {
