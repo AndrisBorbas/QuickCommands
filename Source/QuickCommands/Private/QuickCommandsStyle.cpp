@@ -46,6 +46,7 @@ TSharedRef< FSlateStyleSet > FQuickCommandsStyle::Create()
 	Style->SetContentRoot(IPluginManager::Get().FindPlugin("QuickCommands")->GetBaseDir() / TEXT("Resources"));
 
 	Style->Set("QuickCommands.OpenPluginWindow", new IMAGE_BRUSH(TEXT("ButtonIcon_40x"), Icon40x40));
+	Style->Set("QuickCommands.OpenPluginWindow.Small", new IMAGE_BRUSH(TEXT("ButtonIcon_40x"), Icon20x20));
 
 	return Style;
 }
