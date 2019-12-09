@@ -97,10 +97,9 @@ TSharedRef<SDockTab> FQuickCommandsModule::OnSpawnPluginTab(const FSpawnTabArgs&
 
 	/*FString SaveDirectory = FString("D:/Projects/Uprojects");
 	FString FileName = FString("commands.txt");*/
-	FString TextToSave = Commands;
+	TextToSave = Commands;
 	FString AbsoluteFilePath = SaveDirectory + "/" + FileName;
 
-	TArray< FString > CommandCollection;
 	CommandCollection.Empty();
 	FFileHelper::LoadANSITextFileToStrings(*AbsoluteFilePath, NULL, CommandCollection);
 	for (const auto& ConsoleCommand : CommandCollection)
