@@ -123,7 +123,10 @@ TSharedRef<SDockTab> FQuickCommandsModule::OnSpawnPluginTab(const FSpawnTabArgs&
 						.Font(FSlateFontInfo(FPaths::EngineContentDir() / TEXT("Slate/Fonts/Roboto-Regular.ttf"), 9))
 					]
 				]
-				.OnClicked_Lambda([ConsoleCommand]()->FReply { GEngine->Exec(NULL, *ConsoleCommand, *GLog);	return FReply::Handled(); })
+				.OnClicked_Lambda([ConsoleCommand]()-> FReply {
+                    GEngine->Exec(GEngine->GetWorldContexts().Last().World(), *ConsoleCommand, *GLog);
+                    return FReply::Handled();
+                })
 			]
 		];
 	}
