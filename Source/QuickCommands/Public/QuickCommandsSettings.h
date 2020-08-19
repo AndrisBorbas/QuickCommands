@@ -8,8 +8,7 @@
 
 
 UCLASS(config = QuickCommands, defaultconfig)
-class QUICKCOMMANDS_API UQuickCommandsSettings : public UObject
-{
+class QUICKCOMMANDS_API UQuickCommandsSettings : public UObject {
 	GENERATED_BODY()
 
 public:

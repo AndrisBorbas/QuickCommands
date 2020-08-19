@@ -6,18 +6,17 @@
 #include "Framework/Commands/Commands.h"
 #include "QuickCommandsStyle.h"
 
-class FQuickCommandsCommands : public TCommands<FQuickCommandsCommands>
-{
+class FQuickCommandsCommands : public TCommands<FQuickCommandsCommands> {
 public:
 
 	FQuickCommandsCommands()
-		: TCommands<FQuickCommandsCommands>(TEXT("QuickCommands"), NSLOCTEXT("Contexts", "QuickCommands", "QuickCommands Plugin"), NAME_None, FQuickCommandsStyle::GetStyleSetName())
-	{
-	}
+		: TCommands<FQuickCommandsCommands>(
+			TEXT("QuickCommands"), NSLOCTEXT("Contexts", "QuickCommands", "QuickCommands Plugin"), NAME_None,
+			FQuickCommandsStyle::GetStyleSetName()) { }
 
 	// TCommands<> interface
 	virtual void RegisterCommands() override;
 
 public:
-	TSharedPtr< FUICommandInfo > OpenPluginWindow;
+	TSharedPtr<FUICommandInfo> OpenPluginWindow;
 };

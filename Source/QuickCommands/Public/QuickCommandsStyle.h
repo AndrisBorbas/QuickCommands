@@ -6,8 +6,7 @@
 #include "Styling/SlateStyle.h"
 
 /**  */
-class FQuickCommandsStyle
-{
+class FQuickCommandsStyle {
 public:
 
 	static void Initialize();
@@ -24,9 +23,9 @@ public:
 
 private:
 
-	static TSharedRef< class FSlateStyleSet > Create();
+	static TSharedRef<class FSlateStyleSet> Create();
 
 private:
 
-	static TSharedPtr< class FSlateStyleSet > StyleInstance;
+	static TSharedPtr<class FSlateStyleSet> StyleInstance;
 };
