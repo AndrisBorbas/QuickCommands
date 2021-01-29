@@ -1,0 +1,24 @@
+HighResShot 4
+
+stat fps
+stat unit
+stat Engine
+stat Game
+stat Memory
+
+p.NetShowCorrections 1
+p.NetShowCorrections 0
+
+t.maxfps 60
+t.maxfps 75
+t.maxfps 100
+t.maxfps 120
+t.maxfps 180
+t.maxfps 300
+r.shadow.maxresolution 4096
+r.shadow.maxresolution 1024
+r.Streaming.PoolSize 8000
+r.Streaming.Poolsize 6000
+r.Streaming.Poolsize 4000
+r.Streaming.Poolsize 2000
+r.Streaming.Poolsize 1000
