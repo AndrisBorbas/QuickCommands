@@ -33,10 +33,10 @@ void FQuickCommandsModule::StartupModule()
 	if (ISettingsModule* SettingsModule = FModuleManager::GetModulePtr<ISettingsModule>("Settings"))
 	{
 		SettingsModule->RegisterSettings("Editor", "Plugins", "Quick Commands",
-		                                 LOCTEXT("QuickCommandsName", "Quick Commands"),
-		                                 LOCTEXT("QuickCommandsNameDesc",
-		                                         "Configure options for the location of the commands file"),
-		                                 GetMutableDefault<UQuickCommandsSettings>()
+										 LOCTEXT("QuickCommandsName", "Quick Commands"),
+										 LOCTEXT("QuickCommandsNameDesc",
+												 "Configure options for the location of the commands file"),
+										 GetMutableDefault<UQuickCommandsSettings>()
 		);
 	}
 
@@ -52,8 +52,8 @@ void FQuickCommandsModule::StartupModule()
 	{
 		TSharedPtr<FExtender> MenuExtender = MakeShareable(new FExtender());
 		MenuExtender->AddMenuExtension("WindowLayout", EExtensionHook::After, PluginCommands,
-		                               FMenuExtensionDelegate::CreateRaw(
-			                               this, &FQuickCommandsModule::AddMenuExtension));
+									   FMenuExtensionDelegate::CreateRaw(
+										   this, &FQuickCommandsModule::AddMenuExtension));
 
 		LevelEditorModule.GetMenuExtensibilityManager()->AddExtender(MenuExtender);
 	}
@@ -61,17 +61,17 @@ void FQuickCommandsModule::StartupModule()
 	{
 		TSharedPtr<FExtender> ToolbarExtender = MakeShareable(new FExtender);
 		ToolbarExtender->AddToolBarExtension("Settings", EExtensionHook::After, PluginCommands,
-		                                     FToolBarExtensionDelegate::CreateRaw(
-			                                     this, &FQuickCommandsModule::AddToolbarExtension));
+											 FToolBarExtensionDelegate::CreateRaw(
+												 this, &FQuickCommandsModule::AddToolbarExtension));
 
 		LevelEditorModule.GetToolBarExtensibilityManager()->AddExtender(ToolbarExtender);
 	}
 
 	FGlobalTabmanager::Get()->RegisterNomadTabSpawner(QuickCommandsTabName,
-	                                                  FOnSpawnTab::CreateRaw(
-		                                                  this, &FQuickCommandsModule::OnSpawnPluginTab))
-	                        .SetDisplayName(LOCTEXT("FQuickCommandsTabTitle", "QuickCommands"))
-	                        .SetMenuType(ETabSpawnerMenuType::Hidden);
+													  FOnSpawnTab::CreateRaw(
+														  this, &FQuickCommandsModule::OnSpawnPluginTab))
+							.SetDisplayName(LOCTEXT("FQuickCommandsTabTitle", "QuickCommands"))
+							.SetMenuType(ETabSpawnerMenuType::Hidden);
 }
 
 void FQuickCommandsModule::ShutdownModule()
@@ -144,7 +144,7 @@ void FQuickCommandsModule::CreateCommandList(TSharedRef<SScrollBox> ButtonList, 
 					.OnClicked_Lambda([ConsoleCommand]()-> FReply
 					{
 						GEngine->Exec(GEngine->GetWorldContexts().Last().World(), *ConsoleCommand.TrimStartAndEnd(),
-						              *GLog);
+									  *GLog);
 						return FReply::Handled();
 					})
 				]
