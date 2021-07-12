@@ -16,3 +16,7 @@ The separator is just an empty line in the file.
 ## Installing for your version of UE4 (tested with 4.26, should work with >4.19)
 
 https://github.com/AndrisBorbas/QuickCommands/wiki/Setup
+
+## Check out the UE5 version:
+
+https://github.com/AndrisBorbas/QuickCommands/tree/UE5-EA
