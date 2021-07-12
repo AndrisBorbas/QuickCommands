@@ -2,7 +2,10 @@
 
 #include "QuickCommandsSettings.h"
 
-UQuickCommandsSettings::UQuickCommandsSettings(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-	SaveDirectoryS = FString("C:/Users/YOUR_USERNAME/Documents/Unreal Projects");
-	FileNameS = FString("commands.txt");
+#include "Interfaces/IPluginManager.h"
+
+UQuickCommandsSettings::UQuickCommandsSettings(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
+{
+	ConfigFile.FilePath = IPluginManager::Get().FindPlugin("QuickCommands")->GetBaseDir() /
+		TEXT("Commands/commands.txt");
 }

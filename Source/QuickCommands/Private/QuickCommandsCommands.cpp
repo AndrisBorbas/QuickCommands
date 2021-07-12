@@ -6,7 +6,7 @@
 
 void FQuickCommandsCommands::RegisterCommands() {
 	UI_COMMAND(OpenPluginWindow, "QuickCommands", "Bring up QuickCommands window", EUserInterfaceActionType::Button,
-				FInputGesture());
+				FInputChord());
 }
 
 #undef LOCTEXT_NAMESPACE

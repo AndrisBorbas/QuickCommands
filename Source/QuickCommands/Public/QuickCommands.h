@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Modules/ModuleManager.h"
 #include "Widgets/Layout/SScrollBox.h"
 
 class FToolBarBuilder;
@@ -20,10 +19,6 @@ public:
 	void PluginButtonClicked();
 
 	FString ButtonName;
-	/*FString SaveDirectory;
-	FString FileName;*/
-	FString TextToSave;
-	FString Commands;
 	TCHAR Command;
 	TArray<FString> ButtonNames;
 	TArray<FString> CommandCollection;
