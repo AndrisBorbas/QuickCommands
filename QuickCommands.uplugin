@@ -1,26 +1,35 @@
 {
-  "FileVersion": 3,
-  "Version": 1,
-  "VersionName": "5.0.0",
-  "FriendlyName": "QuickCommands",
-  "Description": "Clickable commands",
-  "Category": "Editor",
-  "CreatedBy": "Rens / AndrisBorbas",
-  "CreatedByURL": "",
-  "DocsURL": "https://github.com/AndrisBorbas/QuickCommands/wiki",
-  "MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/d99b947e097b499985694cec86592660",
-  "SupportURL": "https://github.com/AndrisBorbas/QuickCommands/issues",
-  "EngineVersion": "5.0EA",
-  "CanContainContent": false,
-  "WhitelistPlatforms": [ "Win64", "Win32", "Mac", "Linux", "IOS", "Android", "PS4", "XboxOne" ],
-  "CanContainContent" : false,
-  "IsBetaVersion": false,
-  "Installed": true,
-  "Modules": [
-    {
-      "Name": "QuickCommands",
-      "Type": "Editor",
-      "LoadingPhase": "Default"
-    }
-  ]
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "5.0.1",
+	"FriendlyName": "QuickCommands",
+	"Description": "Clickable commands",
+	"Category": "Editor",
+	"CreatedBy": "AndrisBorbas / Rens",
+	"CreatedByURL": "",
+	"DocsURL": "https://github.com/AndrisBorbas/QuickCommands/wiki",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/d99b947e097b499985694cec86592660",
+	"SupportURL": "https://github.com/AndrisBorbas/QuickCommands/issues",
+	"EngineVersion": "5.0",
+	"CanContainContent": false,
+	"WhitelistPlatforms": [
+		"Win64",
+		"Win32",
+		"Mac",
+		"Linux",
+		"IOS",
+		"Android",
+		"PS4",
+		"XboxOne"
+	],
+	"IsBetaVersion": false,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "QuickCommands",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	],
+	"IsExperimentalVersion": false
 }

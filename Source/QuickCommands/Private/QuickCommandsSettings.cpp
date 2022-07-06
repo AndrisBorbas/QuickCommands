@@ -4,8 +4,8 @@
 
 #include "Interfaces/IPluginManager.h"
 
-UQuickCommandsSettings::UQuickCommandsSettings(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
+UQuickCommandsSettings::UQuickCommandsSettings(const FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer)
 {
-	ConfigFile.FilePath = IPluginManager::Get().FindPlugin("QuickCommands")->GetBaseDir() /
-		TEXT("Commands/commands.txt");
+	ConfigFile.FilePath = IPluginManager::Get().FindPlugin("QuickCommands")->GetBaseDir() / TEXT("Commands/commands.txt");
 }

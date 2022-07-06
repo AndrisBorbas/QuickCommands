@@ -8,9 +8,9 @@
 class FToolBarBuilder;
 class FMenuBuilder;
 
-class FQuickCommandsModule : public IModuleInterface {
+class FQuickCommandsModule : public IModuleInterface
+{
 public:
-
 	/** IModuleInterface implementation */
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
@@ -24,12 +24,9 @@ public:
 	TArray<FString> CommandCollection;
 
 private:
-
 	void AddToolbarExtension(FToolBarBuilder& Builder);
 	void AddMenuExtension(FMenuBuilder& Builder);
 	void CreateCommandList(TSharedRef<SScrollBox>, FString);
 	TSharedRef<class SDockTab> OnSpawnPluginTab(const class FSpawnTabArgs& SpawnTabArgs);
-	
-private:
 	TSharedPtr<class FUICommandList> PluginCommands;
 };

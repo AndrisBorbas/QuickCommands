@@ -32,28 +32,22 @@ void FQuickCommandsModule::StartupModule()
 
 	if (ISettingsModule* SettingsModule = FModuleManager::GetModulePtr<ISettingsModule>("Settings"))
 	{
-		SettingsModule->RegisterSettings("Editor", "Plugins", "Quick Commands",
-										 LOCTEXT("QuickCommandsName", "Quick Commands"),
-										 LOCTEXT("QuickCommandsNameDesc",
-												 "Configure options for the location of the commands file"),
-										 GetMutableDefault<UQuickCommandsSettings>()
-		);
+		SettingsModule->RegisterSettings("Editor", "Plugins", "Quick Commands", LOCTEXT("QuickCommandsName", "Quick Commands"),
+			LOCTEXT("QuickCommandsNameDesc", "Configure options for the location of the commands file"),
+			GetMutableDefault<UQuickCommandsSettings>());
 	}
 
 	PluginCommands = MakeShareable(new FUICommandList);
 
-	PluginCommands->MapAction(
-		FQuickCommandsCommands::Get().OpenPluginWindow,
-		FExecuteAction::CreateRaw(this, &FQuickCommandsModule::PluginButtonClicked),
-		FCanExecuteAction());
+	PluginCommands->MapAction(FQuickCommandsCommands::Get().OpenPluginWindow,
+		FExecuteAction::CreateRaw(this, &FQuickCommandsModule::PluginButtonClicked), FCanExecuteAction());
 
 	FLevelEditorModule& LevelEditorModule = FModuleManager::LoadModuleChecked<FLevelEditorModule>("LevelEditor");
 
 	{
 		TSharedPtr<FExtender> MenuExtender = MakeShareable(new FExtender());
 		MenuExtender->AddMenuExtension("WindowLayout", EExtensionHook::After, PluginCommands,
-									   FMenuExtensionDelegate::CreateRaw(
-										   this, &FQuickCommandsModule::AddMenuExtension));
+			FMenuExtensionDelegate::CreateRaw(this, &FQuickCommandsModule::AddMenuExtension));
 
 		LevelEditorModule.GetMenuExtensibilityManager()->AddExtender(MenuExtender);
 	}
@@ -61,17 +55,15 @@ void FQuickCommandsModule::StartupModule()
 	{
 		TSharedPtr<FExtender> ToolbarExtender = MakeShareable(new FExtender);
 		ToolbarExtender->AddToolBarExtension("Settings", EExtensionHook::After, PluginCommands,
-											 FToolBarExtensionDelegate::CreateRaw(
-												 this, &FQuickCommandsModule::AddToolbarExtension));
+			FToolBarExtensionDelegate::CreateRaw(this, &FQuickCommandsModule::AddToolbarExtension));
 
 		LevelEditorModule.GetToolBarExtensibilityManager()->AddExtender(ToolbarExtender);
 	}
 
-	FGlobalTabmanager::Get()->RegisterNomadTabSpawner(QuickCommandsTabName,
-													  FOnSpawnTab::CreateRaw(
-														  this, &FQuickCommandsModule::OnSpawnPluginTab))
-							.SetDisplayName(LOCTEXT("FQuickCommandsTabTitle", "QuickCommands"))
-							.SetMenuType(ETabSpawnerMenuType::Hidden);
+	FGlobalTabmanager::Get()
+		->RegisterNomadTabSpawner(QuickCommandsTabName, FOnSpawnTab::CreateRaw(this, &FQuickCommandsModule::OnSpawnPluginTab))
+		.SetDisplayName(LOCTEXT("FQuickCommandsTabTitle", "QuickCommands"))
+		.SetMenuType(ETabSpawnerMenuType::Hidden);
 }
 
 void FQuickCommandsModule::ShutdownModule()
@@ -91,35 +83,22 @@ void FQuickCommandsModule::ShutdownModule()
 void FQuickCommandsModule::CreateCommandList(TSharedRef<SScrollBox> ButtonList, FString AbsoluteFilePath)
 {
 	ButtonList->ClearChildren();
-	ButtonList->AddSlot()[
-		SNew(SHorizontalBox)
+	ButtonList->AddSlot()[SNew(SHorizontalBox)
 		+ SHorizontalBox::Slot()
-		.Padding(3.0f, 4.0f, 3.0f, 4.0f)[
-			SNew(SButton)
-			.ButtonColorAndOpacity(FLinearColor(1, 1, 1, .9))[
-				SNew(SHorizontalBox)
-				+ SHorizontalBox::Slot()
-				.Padding(1.0f, 3.0f)[
-					SNew(STextBlock)
-					.Text(FText::FromString("Refresh List"))
-					.Font(FSlateFontInfo(FPaths::EngineContentDir() / TEXT("Slate/Fonts/Roboto-Regular.ttf"), 12))
-					.Justification(ETextJustify::Center)
-				]
-			]
-			.OnClicked_Lambda([this, ButtonList, AbsoluteFilePath]()-> FReply
-			{
-				CreateCommandList(ButtonList, AbsoluteFilePath);
-				return FReply::Handled();
-			})
-		]
-	];
-	ButtonList->AddSlot()[
-		SNew(SHorizontalBox)
+			  .Padding(3.0f, 4.0f, 3.0f, 4.0f)[SNew(SButton)
+												   .ButtonColorAndOpacity(FLinearColor(1, 1, 1, .9))[SNew(SHorizontalBox)
+													   + SHorizontalBox::Slot()
+															 .Padding(1.0f, 3.0f)[SNew(STextBlock)
+																					  .Text(FText::FromString("Refresh List"))
+																					  .Font(FSlateFontInfo(FPaths::EngineContentDir() / TEXT("Slate/Fonts/Roboto-Regular.ttf"), 12))
+																					  .Justification(ETextJustify::Center)]]
+												   .OnClicked_Lambda([this, ButtonList, AbsoluteFilePath]() -> FReply {
+													   CreateCommandList(ButtonList, AbsoluteFilePath);
+													   return FReply::Handled();
+												   })]];
+	ButtonList->AddSlot()[SNew(SHorizontalBox)
 		+ SHorizontalBox::Slot()
-		.Padding(3.0f, 4.0f)[
-			SNew(SSeparator)
-		]
-	];
+			  .Padding(3.0f, 4.0f)[SNew(SSeparator)]];
 
 	CommandCollection.Empty();
 	FFileHelper::LoadANSITextFileToStrings(*AbsoluteFilePath, nullptr, CommandCollection);
@@ -127,38 +106,24 @@ void FQuickCommandsModule::CreateCommandList(TSharedRef<SScrollBox> ButtonList, 
 	{
 		if (!ConsoleCommand.TrimStartAndEnd().IsEmpty())
 		{
-			ButtonList->AddSlot()[
-				SNew(SHorizontalBox)
+			ButtonList->AddSlot()[SNew(SHorizontalBox)
 				+ SHorizontalBox::Slot()
-				.Padding(3.0f, 1.0f)[
-					SNew(SButton)
-					.ButtonColorAndOpacity(FLinearColor(1, 1, 1, .9))[
-						SNew(SHorizontalBox)
-						+ SHorizontalBox::Slot()
-						.Padding(1.0f, 3.0f)[
-							SNew(STextBlock)
-						.Text(FText::FromString(ConsoleCommand))
-						.Font(FSlateFontInfo(FPaths::EngineContentDir() / TEXT("Slate/Fonts/Roboto-Regular.ttf"), 9))
-						]
-					]
-					.OnClicked_Lambda([ConsoleCommand]()-> FReply
-					{
-						GEngine->Exec(GEngine->GetWorldContexts().Last().World(), *ConsoleCommand.TrimStartAndEnd(),
-									  *GLog);
-						return FReply::Handled();
-					})
-				]
-			];
+					  .Padding(3.0f, 1.0f)[SNew(SButton)
+											   .ButtonColorAndOpacity(FLinearColor(1, 1, 1, .9))[SNew(SHorizontalBox)
+												   + SHorizontalBox::Slot()
+														 .Padding(1.0f, 3.0f)[SNew(STextBlock)
+																				  .Text(FText::FromString(ConsoleCommand))
+																				  .Font(FSlateFontInfo(FPaths::EngineContentDir() / TEXT("Slate/Fonts/Roboto-Regular.ttf"), 9))]]
+											   .OnClicked_Lambda([ConsoleCommand]() -> FReply {
+												   GEngine->Exec(GEngine->GetWorldContexts().Last().World(), *ConsoleCommand.TrimStartAndEnd(), *GLog);
+												   return FReply::Handled();
+											   })]];
 		}
 		else
 		{
-			ButtonList->AddSlot()[
-				SNew(SHorizontalBox)
+			ButtonList->AddSlot()[SNew(SHorizontalBox)
 				+ SHorizontalBox::Slot()
-				.Padding(3.0f, 3.0f)[
-					SNew(SSeparator)
-				]
-			];
+					  .Padding(3.0f, 3.0f)[SNew(SSeparator)]];
 		}
 	}
 }
@@ -166,23 +131,20 @@ void FQuickCommandsModule::CreateCommandList(TSharedRef<SScrollBox> ButtonList, 
 TSharedRef<SDockTab> FQuickCommandsModule::OnSpawnPluginTab(const FSpawnTabArgs& SpawnTabArgs)
 {
 	FString FileName = GetMutableDefault<UQuickCommandsSettings>()->ConfigFile.FilePath;
-	FText WidgetText = FText::Format(
-		LOCTEXT("WindowWidgetText", "Add code to {0} in {1} to override this window's contents"),
-		FText::FromString(TEXT("FQuickCommandsModule::OnSpawnPluginTab")),
-		FText::FromString(TEXT("QuickCommands.cpp"))
-	);
+	FText WidgetText = FText::Format(LOCTEXT("WindowWidgetText", "Add code to {0} in {1} to override this window's contents"),
+		FText::FromString(TEXT("FQuickCommandsModule::OnSpawnPluginTab")), FText::FromString(TEXT("QuickCommands.cpp")));
 
 	TSharedRef<SScrollBox> ButtonList = SNew(SScrollBox);
 
 	CreateCommandList(ButtonList, FileName);
 
-	return SNew(SDockTab)
-		.TabRole(NomadTab)[
-			ButtonList
-		];
+	return SNew(SDockTab).TabRole(NomadTab)[ButtonList];
 }
 
-void FQuickCommandsModule::PluginButtonClicked() { FGlobalTabmanager::Get()->TryInvokeTab(QuickCommandsTabName); }
+void FQuickCommandsModule::PluginButtonClicked()
+{
+	FGlobalTabmanager::Get()->TryInvokeTab(QuickCommandsTabName);
+}
 
 void FQuickCommandsModule::AddMenuExtension(FMenuBuilder& Builder)
 {
