@@ -1,6 +1,6 @@
 # QuickCommands
 
-Plugin for Unreal Engine 4 that adds a window what you can fill with console commands and you can execute them by clicking on them.
+Plugin for Unreal Engine 5 that adds a window what you can fill with console commands and you can execute them by clicking on them.
 
 <img src="/Resources/quickcommands.gif" width="720" />
 
@@ -13,7 +13,7 @@ The separator is just an empty line in the file.
 
 #### Unreal forum post: https://forums.unrealengine.com/community/released-projects/1543348-free-quickcomands
 
-## Installing for your version of UE4 (tested with 4.26, should work with >4.19)
+## Installing for your version of UE5 (tested with >5.0EA2)
 
 https://github.com/AndrisBorbas/QuickCommands/wiki/Setup
 

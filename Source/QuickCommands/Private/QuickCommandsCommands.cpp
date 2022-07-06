@@ -4,9 +4,9 @@
 
 #define LOCTEXT_NAMESPACE "FQuickCommandsModule"
 
-void FQuickCommandsCommands::RegisterCommands() {
-	UI_COMMAND(OpenPluginWindow, "QuickCommands", "Bring up QuickCommands window", EUserInterfaceActionType::Button,
-				FInputChord());
+void FQuickCommandsCommands::RegisterCommands()
+{
+	UI_COMMAND(OpenPluginWindow, "QuickCommands", "Bring up QuickCommands window", EUserInterfaceActionType::Button, FInputChord());
 }
 
 #undef LOCTEXT_NAMESPACE
