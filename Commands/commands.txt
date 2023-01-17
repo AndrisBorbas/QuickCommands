@@ -23,3 +23,6 @@ r.shadow.maxresolution 1024
 r.Streaming.Poolsize 1000
 r.Streaming.Poolsize 4000
 r.Streaming.PoolSize 8000
+
+viewmode lit
+viewmode unlit
