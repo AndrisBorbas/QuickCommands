@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "5.1.0",
+	"VersionName": "5.1.1",
 	"FriendlyName": "QuickCommands",
 	"Description": "Clickable commands",
 	"Category": "Editor",

@@ -133,10 +133,14 @@ void FQuickCommandsModule::CreateCommandList(TSharedRef<SScrollBox> ButtonList, 
 							{
 								TargetPC->ConsoleCommand(*sCommand, true);
 							}
+							else
+							{
+								GEngine->Exec(World, *sCommand, *GLog);
+							}
 						}
 						else
 						{
-							GEngine->Exec(GEngine->GetWorldContexts().Last().World(), *sCommand, *GLog);
+							UE_LOG(LogTemp, Error, TEXT("Could not run command because there was no world!"));
 						}
 						return FReply::Handled();
 					})]];
